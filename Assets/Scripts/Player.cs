@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.tag == "Asteroids")
         {
+            GameManager.gm.playing = false;
             Destroy(gameObject);
         }
     }
