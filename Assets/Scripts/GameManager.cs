@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Text scoreText;
     public Text timerText;
     float timer;
+
+    public static int score;
 
     public static GameManager gm;
 
@@ -16,7 +19,10 @@ public class GameManager : MonoBehaviour
     {
         gm = this;
 
-        timer = 0f;
+        timer = 0;
+        score = 0;
+
+        UpdateScore();
 
         playing = true;
     }
@@ -26,7 +32,12 @@ public class GameManager : MonoBehaviour
         if (playing)
         {
             timer += Time.deltaTime;
-            timerText.text = timer.ToString();
+            timerText.text = "Time: " + Mathf.Round(timer * 10) / 10 + "s";
         }
+    }
+
+    public void UpdateScore()
+    {
+        scoreText.text = "Asteroids Hit: " + score;
     }
 }

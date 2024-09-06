@@ -21,14 +21,22 @@ public class Asteroid : MonoBehaviour
 
         rb.AddTorque(rot);
 
-        transform.localScale = Vector3.one * Random.Range(1f,3f);
+        transform.localScale = Vector3.one * Random.Range(1f, 3f);
 
         Destroy(gameObject, 10);
     }
 
-    
+
     void Update()
     {
         rb.AddForce(Vector3.back * Time.deltaTime * speed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.score++;
+        Debug.Log(GameManager.score);
+        GameManager.gm.UpdateScore();
+    }
+
 }
