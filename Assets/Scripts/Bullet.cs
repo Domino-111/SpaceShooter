@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
+    //public float speed = 20f;
     private float timeElapsed = 0f;
+
     
     void Update()
     {
-        transform.position += transform.right * speed * Time.deltaTime;
+        transform.position += transform.right * Time.deltaTime;
 
         timeElapsed += Time.deltaTime;
         if (timeElapsed > 5f)
