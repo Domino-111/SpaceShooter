@@ -15,11 +15,13 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        transform.rotation = Quaternion.Euler(90f, 0, 0);
     }
 
     void Update()
     {
-        rb.AddForce(transform.forward * speed * Time.deltaTime);
+        rb.AddForce(transform.up * speed * Time.deltaTime);
 
         Destroy(gameObject, 3f);
     }
